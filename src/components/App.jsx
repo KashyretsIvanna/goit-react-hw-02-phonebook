@@ -23,17 +23,14 @@ class App extends Component{
   
   handleSubmit=(name,number)=>{
     
-    let bool=this.state.contacts.some((contact)=>{
-      return contact.name===name
-    })
-
-    if(!bool){
+    
       let loginInputId=nanoid();
       this.setState(prevState=>({contacts:[...prevState.contacts,{id:loginInputId,name:name,number:number}]}))
+      
 
       
     
-    }else(alert(name+" is already exists"))}
+  }
 
   handleChange=(e)=>{
     this.setState({filter:e.target.value})

@@ -1,20 +1,25 @@
 import { Component } from "react";
 import styles from "../Form/index.module.css"
 
-
-const INITIAL_STATE = {
-    name: '',
-    number:'',
-  }
-
 class Form extends Component{
     state = {
-        ...INITIAL_STATE
+        name: '',
+        number:'',
     }
     
     handleSubmit=(e)=>{
         e.preventDefault();
-        this.props.onSubmit(this.state.name,this.state.number,this.reset);
+        let bool=this.props.state.contacts.some((contact)=>{
+            return contact.name===this.state.name
+          })
+      
+        if(!bool){
+            this.props.onSubmit(this.state.name,this.state.number,this.reset);
+        this.reset();          
+          }else(alert(this.state.name+" is already exists"))
+
+        
+        
         
     };
 
