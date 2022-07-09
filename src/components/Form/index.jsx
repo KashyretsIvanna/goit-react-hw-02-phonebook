@@ -14,12 +14,11 @@ class Form extends Component{
     
     handleSubmit=(e)=>{
         e.preventDefault();
-        this.props.onSubmit(this.state.name,this.state.number);
-        this.reset();    
+        this.props.onSubmit(this.state.name,this.state.number,this.reset);
+        
     };
 
     reset=()=>{
-    
         this.setState({number:"",name:""})
     }
     
@@ -30,12 +29,12 @@ class Form extends Component{
         this.setState({number:e.target.value});
     }
 
+   
     render(){
         const {name,number}=this.state;
         return(
             <div className={styles.form}>
-                
-
+            
                 <form onSubmit={this.handleSubmit}>
                 <input
                     onChange={this.handleChangeName}

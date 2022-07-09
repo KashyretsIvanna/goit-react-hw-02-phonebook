@@ -1,8 +1,7 @@
 import { Component, Fragment } from "react";
 
 class Filter extends Component{
-    
-    
+        
     render(){
         const {filter}=this.props.filter;
         return(
@@ -11,7 +10,7 @@ class Filter extends Component{
                 <input 
                     type="text" 
                     value={filter} 
-                    onChange={(e)=>{this.props.onFilter(e)}}/>)
+                    onChange={(e)=>{this.props.onFilter(e)}}/>
             </Fragment>
         )
             

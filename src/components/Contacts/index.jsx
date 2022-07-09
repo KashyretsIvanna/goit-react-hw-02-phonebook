@@ -10,11 +10,7 @@ class Contacts extends Component{
         const {filter,contacts}=this.props;
         
         return(
-            <div>
-    
-                {/* <Filter onFilter={this.handleChange} filter={this.state.filter} /> */}
-                
-                
+            <div>        
         
                 <ul className={styles.contacts}>
                     

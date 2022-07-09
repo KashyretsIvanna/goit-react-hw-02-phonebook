@@ -16,14 +16,24 @@ class App extends Component{
       {id: 'id-4', name: 'Annie Copeland', number: '227-91-26'}
     ],
     
-    filter:''
-  }
-  handleSubmit=(name,number)=>{
-    let loginInputId = nanoid();
-    this.setState(prevState=>({contacts:[...prevState.contacts,{id:loginInputId,name:name,number:number}]}))
+    filter:'',
     
   }
+
   
+  handleSubmit=(name,number)=>{
+    
+    let bool=this.state.contacts.some((contact)=>{
+      return contact.name===name
+    })
+
+    if(!bool){
+      let loginInputId=nanoid();
+      this.setState(prevState=>({contacts:[...prevState.contacts,{id:loginInputId,name:name,number:number}]}))
+
+      
+    
+    }else(alert(name+" is already exists"))}
 
   handleChange=(e)=>{
     this.setState({filter:e.target.value})
