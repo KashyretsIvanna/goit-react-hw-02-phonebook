@@ -23,12 +23,10 @@ class App extends Component{
     this.setState(prevState=>({contacts:[...prevState.contacts,{id:loginInputId,name:name,number:number}]}))
     
   }
-  handleFilter=(filter)=>{
-    this.setState({filter:filter})
-  }
+  
 
   handleChange=(e)=>{
-    this.handleFilter(e.target.value)
+    this.setState({filter:e.target.value})
   }
 
   render(){
@@ -46,7 +44,7 @@ class App extends Component{
         <Form state={this.state} onSubmit={this.handleSubmit}/>
         <h2>Contacts</h2>
         <Filter onFilter={this.handleChange} filter={this.state.filter} />
-        <Contacts onFilter={this.handleFilter} filter={filter} contacts={contacts} />
+        <Contacts filter={filter} contacts={contacts} />
         
       </div>
     )
