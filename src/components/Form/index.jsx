@@ -11,16 +11,12 @@ class Form extends Component{
         e.preventDefault();
         let bool=this.props.state.contacts.some((contact)=>{
             return contact.name===this.state.name
-          })
+        })
       
         if(!bool){
             this.props.onSubmit(this.state.name,this.state.number,this.reset);
         this.reset();          
-          }else(alert(this.state.name+" is already exists"))
-
-        
-        
-        
+        }else(alert(this.state.name+" is already exists"))
     };
 
     reset=()=>{
@@ -48,6 +44,7 @@ class Form extends Component{
                     pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
                     title="Name may contain only letters, apostrophe, dash and spaces. For example Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan"
                     required
+                    className={styles.input}
                     value={name}
                 />
 
@@ -57,6 +54,7 @@ class Form extends Component{
                     onChange={this.handleChangeTel}
                     type="tel"
                     name="number"
+                    className={styles.input}
                     pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
                     title="Phone number must be digits and can contain spaces, dashes, parentheses and can start with +"
                     required
@@ -64,7 +62,7 @@ class Form extends Component{
                     />
                 <br/>
 
-                <button type="submit">Submit</button>
+                <button className={styles.button} type="submit">Submit</button>
                 </form>
 
             </div>

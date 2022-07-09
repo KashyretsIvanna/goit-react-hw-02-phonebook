@@ -1,6 +1,6 @@
 import { Component } from "react";
 import styles from "../Contacts/index.module.css"
-import Contact from "./contact";
+import Contact from "./Contact";
 
 
 class Contacts extends Component{

@@ -2,12 +2,11 @@ import { Component } from "react";
 import { nanoid } from "nanoid";
 import Form from "./Form";
 import Contacts from "./Contacts";
-import Filter from "./Contacts/filter";
+import Filter from "./Filter";
+import styles from "../components/app.module.css"
 
 
 class App extends Component{
-  
-
   state = {
     contacts: [
       {id: 'id-1', name: 'Rosie Simpson', number: '459-12-56'},
@@ -19,17 +18,10 @@ class App extends Component{
     filter:'',
     
   }
-
   
   handleSubmit=(name,number)=>{
-    
-    
       let loginInputId=nanoid();
       this.setState(prevState=>({contacts:[...prevState.contacts,{id:loginInputId,name:name,number:number}]}))
-      
-
-      
-    
   }
 
   handleChange=(e)=>{
@@ -37,27 +29,26 @@ class App extends Component{
   }
 
   handleDelete=(itemId)=>{
-    ;
     this.setState(prev=>({contacts:prev.contacts.filter((el)=>el.id!==itemId)}))
-    
   }
 
   render(){
     const {contacts,filter}=this.state;
     return (
-      <div
-        style={{
-          height: '100vh',
-          fontSize: 40,
-          color: '#010101',
-          textAlign:'center'
-        }}
-      >
+      <div className={styles.app}>
         <h2>Phonebook</h2>
-        <Form state={this.state} onSubmit={this.handleSubmit}/>
+        <Form 
+          state={this.state} 
+          onSubmit={this.handleSubmit}
+        />
         <h2>Contacts</h2>
-        <Filter onFilter={this.handleChange} filter={this.state.filter} />
-        <Contacts onDelete={this.handleDelete} filter={filter} contacts={contacts} />
+        <Filter 
+          onFilter={this.handleChange} 
+          filter={this.state.filter} />
+        <Contacts 
+          onDelete={this.handleDelete} 
+          filter={filter} 
+          contacts={contacts} />
         
       </div>
     )
