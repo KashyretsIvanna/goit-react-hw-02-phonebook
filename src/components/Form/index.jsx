@@ -1,11 +1,23 @@
 import { Component } from "react";
 import styles from "../Form/index.module.css"
+import PropTypes from "prop-types"
+
 
 class Form extends Component{
     state = {
         name: '',
         number:'',
     }
+
+    static propTypes = {
+        state:PropTypes.shape({
+            contacts:PropTypes.array.isRequired,
+            onSubmit:PropTypes.func
+        }
+
+
+        )
+    };
     
     handleSubmit=(e)=>{
         e.preventDefault();

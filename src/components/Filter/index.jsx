@@ -1,7 +1,13 @@
 import { Component, Fragment } from "react";
-import styles from "../Filter/index.module.css"
+import styles from "../Filter/index.module.css";
+import PropTypes from "prop-types"
 
 class Filter extends Component{
+
+    static propTypes={
+        onFilter:PropTypes.func,
+        filter: PropTypes.string
+    }
         
     render(){
         const {filter}=this.props.filter;

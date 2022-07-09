@@ -44,11 +44,13 @@ class App extends Component{
         <h2>Contacts</h2>
         <Filter 
           onFilter={this.handleChange} 
-          filter={this.state.filter} />
+          filter={this.state.filter} 
+        />
         <Contacts 
           onDelete={this.handleDelete} 
           filter={filter} 
-          contacts={contacts} />
+          contacts={contacts} 
+        />
         
       </div>
     )

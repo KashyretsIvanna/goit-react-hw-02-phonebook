@@ -1,8 +1,15 @@
 import { Component } from "react";
 import styles from "./index.module.css"
+import PropTypes from "prop-types"
 
 class Contact extends Component{
-
+    
+    static propTypes={
+        onDelete:PropTypes.func,
+        number:PropTypes.string,
+        name:PropTypes.string,
+        contacts:PropTypes.array
+    }
     
     render(){
         const {id}=this.props.contact;
