@@ -1,12 +1,10 @@
 import { Component } from "react";
 import styles from "../Contacts/index.module.css"
 import Contact from "./contact";
-import Filter from "./filter";
+
 
 class Contacts extends Component{
-    handleChange=(e)=>{
-        this.props.onFilter(e.target.value)
-    }
+    
         
     render(){
         const {filter,contacts}=this.props;
@@ -14,7 +12,7 @@ class Contacts extends Component{
         return(
             <div>
     
-                <Filter onFilter={this.handleChange} filter={this.state.filter} />
+                {/* <Filter onFilter={this.handleChange} filter={this.state.filter} /> */}
                 
                 
         
