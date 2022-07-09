@@ -16,9 +16,11 @@ class Contacts extends Component{
                     
                     {contacts.filter(contact => contact.name.toLocaleLowerCase().includes(filter.toLocaleLowerCase())).map((contact) => {                    
                         return (<Contact 
+                                    onDelete={this.props.onDelete}
                                     key={contact.id} 
                                     number={contact.number} 
-                                    name={contact.name}/>) 
+                                    name={contact.name}
+                                    contact={contact}/>) 
                     })}
                     
                 </ul>
